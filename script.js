@@ -68,10 +68,12 @@ const songs = [
     artistName: "Arijit Singh",
     imageUrl: "https://plus.unsplash.com/premium_photo-1683299264772-2ecbdcb5eaa8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjk3fHxzb25nJTIwY292ZXIlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D",
     description: "A sweet and thoughtful love song from 'Love Aaj Kal' with simple yet meaningful lyrics."
-  }
+  },
+ 
 ];
 
 
+function data () {
 let sum = ''
 songs.forEach(function(elem){
     sum = sum + `<div id="cards">
@@ -83,17 +85,32 @@ songs.forEach(function(elem){
       </div>`
 })
 
-let body = document.querySelector('body');
+let body = document.querySelector('#cards');
 body.innerHTML = sum;
+}
 
-// let like = document.querySelector('#like');
-   
-   
-//         like.addEventListener('click', function() {
-//             if (like.style.opacity === '1') {
-//                 like.style.opacity = '0.1'; // Dislike
-//             } else {
-//                 like.style.opacity = '1';   // Like
-//             }
-//         });
+data();
+
+let theme = document.documentElement;
+let flag = 0;
+let btn = document.getElementById('themebtn');
+btn.addEventListener('click',function(){
+if(flag == 0){
+  theme.style.setProperty('--bglight','#160F30');
+  theme.style.setProperty('--bgcard','#200F21');
+  theme.style.setProperty('--colorlight','#EAE7AF');
+  theme.style.setProperty('--colordark','#F9D276');
+  flag = 1;
+}else{
+  theme.style.setProperty('--bglight','rgb(197, 224, 232)');
+   theme.style.setProperty('--bgcard','aliceblue');
+   theme.style.setProperty('--colorlight','#787C7F');
+   theme.style.setProperty('--colordark','#000000');
+   flag = 0;
+}
+})
+
+
+
+
    

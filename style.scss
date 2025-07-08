@@ -1,3 +1,9 @@
+:root {
+  --bglight:rgb(197, 224, 232);
+  --bgcard:aliceblue;
+  --colorlight:#787C7F;
+  --colordark:#000000;
+}
 *{
   margin: 0;
   padding: 0;
@@ -10,8 +16,9 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+
 body {
-background-color: rgb(197, 224, 232);
+background-color:var(--bglight);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,48 +26,86 @@ background-color: rgb(197, 224, 232);
   flex-wrap: wrap;
   padding-top: 40px;
 
-  // button{
-  //   padding: 10px 20px;
-  //   background-color: white;
-  //   display: flex;
-  //   justify-content: flex-start;
-  //   align-items: flex-start;
-  //   z-index: 9;
-  // }
-#cards{
-    padding: 15px;
-    height: 600px;
-    width: 350px;
-    background-color: aliceblue;
-    border-radius: 5px;
-    h1{
-        font-size: 60px;
-        opacity: .5;
-    }
 
-    h5{
-        font-size: 32px;
-        padding-top: 20px;
-    }
-
-    h6{
-        opacity: 0.5;
-        font-size: 20px;
-    }
-
-    p{
-        font-size: 12px;
-        opacity: .6;
-    }
-
-    img{
-        height: 320px;
-        width: 315px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-top: 15px;
-        
-    }
+  #themebtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 10;
+  padding: 10px 20px;
+  background: var(--bgcard);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--colordark);
+  
+}
+#cards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  width: 100vw;
+  box-sizing: border-box;
 }
 }
+#cards > div {
+  padding: 15px;
+  height: 600px;
+  width: 350px;
+  background-color: var(--bgcard);
+  border-radius: 5px;
+  display: flex;                // Enable flexbox
+  flex-direction: column;       // Stack children vertically
+  align-items: flex-start;      // Align items to the left
+  justify-content: flex-start;  // Start from the top
+  overflow: hidden;             // Hide overflow content
+  box-sizing: border-box;
+}
+
+#cards h1 {
+  font-size: 60px;
+  color:var(--colorlight);
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+#cards h5 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  word-break: break-word;
+  width: 100%;
+  color: var(--colordark);
+}
+
+#cards h6 {
+  color:var(--colorlight);
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  word-break: break-word;
+  width: 100%;
+}
+
+#cards img {
+  height: 270px;                // Reduce height to fit all content
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  display: block;
+}
+
+#cards p {
+  font-size: 12px;
+  color:var(--colorlight);
+  margin-top: auto;             // Push p to the bottom
+  width: 100%;
+  word-break: break-word;
+}
+
 

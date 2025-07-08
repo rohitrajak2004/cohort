@@ -1,3 +1,10 @@
+:root {
+  --bglight:rgb(197, 224, 232);
+  --bgcard:aliceblue;
+  --colorlight:#787C7F;
+  --colordark:#000000;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +19,7 @@ body {
 }
 
 body {
-  background-color: rgb(197, 224, 232);
+  background-color: var(--bglight);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,34 +27,83 @@ body {
   flex-wrap: wrap;
   padding-top: 40px;
 }
+body #themebtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 10;
+  padding: 10px 20px;
+  background: var(--bgcard);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--colordark);
+}
 body #cards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+#cards > div {
   padding: 15px;
   height: 600px;
   width: 350px;
-  background-color: aliceblue;
+  background-color: var(--bgcard);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  box-sizing: border-box;
 }
-body #cards h1 {
+
+#cards h1 {
   font-size: 60px;
-  opacity: 0.5;
+  color: var(--colorlight);
+  margin-bottom: 0.5rem;
+  word-break: break-word;
 }
-body #cards h5 {
-  font-size: 32px;
-  padding-top: 20px;
+
+#cards h5 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  word-break: break-word;
+  width: 100%;
+  color: var(--colordark);
 }
-body #cards h6 {
-  opacity: 0.5;
+
+#cards h6 {
+  color: var(--colorlight);
   font-size: 20px;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  word-break: break-word;
+  width: 100%;
 }
-body #cards p {
-  font-size: 12px;
-  opacity: 0.6;
-}
-body #cards img {
-  height: 320px;
-  width: 315px;
+
+#cards img {
+  height: 270px;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
-  margin-top: 15px;
+  margin: 0.5rem 0;
+  display: block;
+}
+
+#cards p {
+  font-size: 12px;
+  color: var(--colorlight);
+  margin-top: auto;
+  width: 100%;
+  word-break: break-word;
 }/*# sourceMappingURL=style.css.map */

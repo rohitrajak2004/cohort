@@ -63,6 +63,7 @@ body #cards {
   justify-content: flex-start;
   overflow: hidden;
   box-sizing: border-box;
+  position: relative;
 }
 
 #cards h1 {
@@ -70,6 +71,23 @@ body #cards {
   color: var(--colorlight);
   margin-bottom: 0.5rem;
   word-break: break-word;
+}
+
+.like {
+  opacity: 0.1;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+  transition: opacity 0.4s, filter 0.4s;
+  cursor: pointer;
+  filter: none;
+}
+.like .like.liked {
+  opacity: 0.9;
+}
+.like .like.glow {
+  filter: drop-shadow(0 0 10px #ff4081) drop-shadow(0 0 20px #ff4081);
 }
 
 #cards h5 {

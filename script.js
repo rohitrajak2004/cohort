@@ -76,8 +76,8 @@ const songs = [
 function data () {
 let sum = ''
 songs.forEach(function(elem){
-    sum = sum + `<div id="cards">
-        <h1>${elem.ranking}</h1>
+    sum = sum + `<div class="cards">
+        <h1>${elem.ranking} <span class="like">❤️</span> </h1>
         <h5>${elem.songName}</h5>
         <h6>${elem.artistName}</h6>
         <img src="${elem.imageUrl}" alt="">
@@ -85,11 +85,41 @@ songs.forEach(function(elem){
       </div>`
 })
 
-let body = document.querySelector('#cards');
-body.innerHTML = sum;
+let card = document.querySelector('#cards');
+
+card.innerHTML = sum;
 }
 
 data();
+
+
+// Event delegation: listen for clicks on like icons
+
+let likefun = function(){
+  let card = document.querySelector('#cards');
+card.addEventListener('dblclick', function(e) {
+  if (e.target.classList.contains('like')) {
+    e.preventDefault(); // Prevent text selection
+    window.getSelection()?.removeAllRanges(); // Deselect any selected text
+    const likeIcon = e.target;
+    // If already liked, reset to default
+    if (likeIcon.classList.contains('liked')) {
+      likeIcon.classList.remove('liked', 'glow');
+      likeIcon.style.opacity = '0.1';
+    } else {
+      likeIcon.classList.add('liked', 'glow');
+      likeIcon.style.opacity = '0.9';
+      // Add glow effect for 1 second
+      setTimeout(() => {
+        likeIcon.classList.remove('glow');
+      }, 1000);
+    }
+  }
+});
+}
+likefun();
+
+
 
 let theme = document.documentElement;
 let flag = 0;
